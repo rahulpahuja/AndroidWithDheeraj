@@ -1,5 +1,7 @@
 package com.rp.livedataapp
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -29,9 +31,9 @@ class MainViewModel : ViewModel() {
         return flowOfNumebes
     }
 
-    suspend fun getNumbers(){
+    suspend fun getNumbers(context: Context){
         getFlowOfNumbers(10).collect {value->
-            println(value)
+            Toast.makeText(context, value.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

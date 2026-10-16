@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
@@ -27,12 +28,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.age.observe(this) { age ->
             Toast.makeText(this, age.toString(), Toast.LENGTH_SHORT).show()
         }
-        changeDataInEveryXSecondsUntil(1,10)
+        //changeDataInEveryXSecondsUntil(1,10)
 
 
 
-        lifecycleScope.launch {
-            viewModel.getNumbers()
+        lifecycleScope.launch(Dispatchers.Main) {
+            viewModel.getNumbers(
+                context = this@MainActivity
+            )
         }
     }
 
