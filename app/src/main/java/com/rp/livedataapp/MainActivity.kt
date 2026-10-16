@@ -28,6 +28,12 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, age.toString(), Toast.LENGTH_SHORT).show()
         }
         changeDataInEveryXSecondsUntil(1,10)
+
+
+
+        lifecycleScope.launch {
+            viewModel.getNumbers()
+        }
     }
 
     // change the age data in every x seconds from 0 to instances

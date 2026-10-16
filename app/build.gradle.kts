@@ -38,7 +38,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.6")
     // Core coroutines library for common functionality (Flow, builders, etc.)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0")
-
+    implementation("androidx.datastore:datastore-preferences:1.1.2")
     // Android-specific support (provides Dispatchers.Main and Android main thread integration)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
     // Optional: LiveData KTX (highly recommended for Kotlin users)
